@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/pages/carrito.css" />
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'></link>  
+    <title>CARRITO</title>
+  </head>
+  <body>
+    <%- include('partials/header') -%>
+
+    <main class="carrito">
+      <h1 class="carrito-titulo">CARRITO DE COMPRAS</h1>
+
+      <div class="carrito-tabla">
+        <div class="carrito-tabla-h">
+          <div class="carrito-tabla-h-text">Detalle de Producto</div>
+          <div class="carrito-tabla-h-text">Cantidad</div>
+          <div class="carrito-tabla-h-text">Total</div>
+        </div>
+
+        <% carrito.forEach(item => {%>  
+          <%-include('partials/cart_tablerow', {item}) %>
+        <%})%> 
+      </div>
+
+      <section class="total container">
+        <article class="total-grid">
+          <div>
+            <h2 class="carrito-titulo">RESUMEN</h2>
+          </div>
+          <div class="total-card">
+            <div class="total-grupo-card">
+              <div class="total-descri-card">
+                <span>CANTIDAD DE ELEMENTOS </span>
+                <span>SUBTOTAL</span>
+                <span>ENVIO </span>
+              </div>
+              <div class="total-precio-card">
+                <span id="canti">0</span>
+                <span id="subtot"> 0.00</span>
+                <span> 0.00</span>
+              </div>
+            </div>
+            <div class="total-grupo-card total-grupo-card-cont">
+              <span>TOTAL</span>
+              <span id="total"> 0.00</span>
+            </div>
+            <input type="button" id="pagar" class ="total-item-boton" value="IR A PAGAR" />
+          </div>
+        </article>
+      </section>
+
+    </main>
+
+    <%- include('partials/footer') -%>
+
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <script src="/js/carrito.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
+
+
